@@ -1,5 +1,4 @@
-const APIURL2 =
-    'https://expressbuybd.com/wp-json/wc/v3/products?page=6&per_page=15';
+const APIURL2 = 'https://expressbuybd.com/wp-json/wc/v3/products?per_page=15';
 
 const APIURL =
     'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1';
