@@ -26,7 +26,7 @@ async function getMovies(url) {
 }
 
 async function getMovies2(url) {
-    let categorie = 'category=251';
+    let categorie = 'category=250';
 
     const resp = await fetch(url + categorie + key);
     const respData = await resp.json();
@@ -69,8 +69,6 @@ function showMovies(movies) {
                   <h3>Categories:${categories[0].name} ${short_description}</h3>
                   <a href='https://expressbuybd.com/?add-to-cart=${id}'><button class="buy-btn">Buy Now</button>
                   </a>
-
-                  
               </div> </div>
         `;
 
