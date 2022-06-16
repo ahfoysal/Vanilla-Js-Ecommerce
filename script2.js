@@ -51,7 +51,7 @@ function showMovies(movies) {
             /></a>
             <div class="movie-info">
                 <h3>${name}</h3>
-                <span class="">${price}</span>
+                <span class="">৳ ${price}</span>
               </div>
               <div class="overview">
                   <h3>Categories:${categories[0].name} ${short_description}</h3>
@@ -63,16 +63,6 @@ function showMovies(movies) {
 
         main.appendChild(movieEl);
     });
-}
-
-function getClassByRate(vote) {
-    if (vote >= 8) {
-        return 'green';
-    } else if (vote >= 5) {
-        return 'orange';
-    } else {
-        return 'red';
-    }
 }
 
 form.addEventListener('submit', (e) => {
