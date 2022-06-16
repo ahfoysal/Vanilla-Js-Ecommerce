@@ -16,6 +16,10 @@ header {
     padding: 1rem;
 }
 
+h3 {
+    font-size: 13px !important;
+}
+
 .search {
     background-color: transparent;
     border: 2px solid #22254b;
@@ -35,7 +39,11 @@ header {
     outline: none;
 }
 
-main {
+.test {
+    display: flex;
+}
+
+.main {
     display: flex;
     flex-wrap: wrap;
     position: relative;
@@ -67,11 +75,13 @@ main {
 
 .movie-info h3 {
     margin: 0;
+    font-size: 13px !important;
 }
 
 .movie-info span {
     background-color: #22254b;
     border-radius: 3px;
+    font-size: 10px;
     font-weight: bold;
     padding: 0.25rem 0.5rem;
 }
@@ -90,7 +100,7 @@ main {
 
 .overview {
     background-color: #fff;
-    padding: 2rem;
+    padding: 1rem;
     position: absolute;
     max-height: 100%;
     overflow: auto;
@@ -103,6 +113,7 @@ main {
 
 .overview h3 {
     margin-top: 0;
+    font-size: 15px;
 }
 
 .movie:hover .overview {
