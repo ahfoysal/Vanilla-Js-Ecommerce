@@ -26,7 +26,7 @@ async function getMovies(url) {
 }
 
 async function getMovies2(url) {
-    let categorie = 'category=250';
+    let categorie = 'category=251';
 
     const resp = await fetch(url + categorie + key);
     const respData = await resp.json();
@@ -42,15 +42,7 @@ function showMovies(movies) {
 
     main.innerHTML = '';
     movies.forEach((movie) => {
-        const {
-            images,
-            name,
-            price,
-            categories,
-            permalink,
-            id,
-            short_description,
-        } = movie;
+        const { images, name, price, permalink, id, short_description } = movie;
 
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
@@ -66,7 +58,7 @@ function showMovies(movies) {
                 <span class="">৳ ${price}</span>
               </div>
               <div class="overview">
-                  <h3>Categories:${categories[0].name} ${short_description}</h3>
+                  <h3>${short_description}</h3>
                   <a href='https://expressbuybd.com/?add-to-cart=${id}'><button class="buy-btn">Buy Now</button>
                   </a>
               </div> </div>
