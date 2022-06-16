@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@200;400;600;700&display=swap');
 *,
 ::before,
 ::after {
@@ -29,7 +30,7 @@ img {
 
 body {
     background-color: #22254b;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     padding: 0;
     box-sizing: border-box;
 }
@@ -82,12 +83,17 @@ h3 {
     overflow: hidden;
     position: relative;
     margin: 1rem;
-    width: 280px;
+    width: 243px;
+    height: 360px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .movie img {
     width: 100%;
-    height: 218px;
+    height: 253px;
+    object-fit: contain;
 }
 
 .movie button {
@@ -102,24 +108,28 @@ h3 {
     color: #eee;
     display: flex;
     align-items: center;
+    font-family: 'Rokkitt', serif;
     justify-content: space-between;
     padding: 0.5rem 1rem 1rem;
+    flex-direction: column;
+    gap: 10px;
     letter-spacing: 0.5px;
 }
 
 .movie-info h3 {
     margin: 0;
-    font-size: 13px !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
 }
 
 .movie-info span {
     background-color: #22254b;
     border-radius: 6px;
-    font-size: 10px;
-    width: 65px;
+    font-size: 14px !important;
+    width: fit-content;
     text-align: center;
     font-weight: bold;
-    padding: 0.25rem 6px;
+    padding: 0.5rem 15px;
 }
 
 .overview {
@@ -212,12 +222,18 @@ h3 {
     background: var(--blue-card);
 }
 
+.container section:nth-child(1) {
+    background: rgb(212, 205, 205);
+    color: #000;
+}
+
 .head-tittle {
     font-size: 35px;
     font-style: italic;
     color: white;
     text-align: center;
     margin: 20px;
+    font-family: 'Rokkitt', serif;
 }
 
 .card-blue {
@@ -230,6 +246,11 @@ h3 {
     transform: translate(0, -1.5rem);
     transition: transform 500ms ease-in-out;
     filter: drop-shadow(5px 10px 15px rgba(8, 9, 13, 0.4));
+    object-fit: contain;
+}
+
+.card img {
+    object-fit: contain;
 }
 
 .product-info {

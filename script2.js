@@ -10,7 +10,7 @@ const main = document.getElementById('main');
 const form = document.getElementById('form');
 const search = document.getElementById('search');
 const siteUrl = 'https://expressbuybd.com/';
-const per_page = 'per_page=6';
+const per_page = 'per_page=16';
 // const categorie = 'category=250';
 // initially get fav movies
 getMovies(APIURL2);
@@ -42,7 +42,7 @@ function showMovies(movies) {
 
     main.innerHTML = '';
     movies.forEach((movie) => {
-        const { images, name, price, permalink, id, short_description } = movie;
+        const { images, name, price, permalink, id } = movie;
 
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
@@ -55,10 +55,9 @@ function showMovies(movies) {
             /></a>
             <div class="movie-info">
                 <h3>${name}</h3>
-                <span class="">৳ ${price}</span>
+                <span class="">৳${price}</span>
               </div>
               <div class="overview">
-                  <h3>${short_description}</h3>
                   <a href='https://expressbuybd.com/?add-to-cart=${id}'><button class="buy-btn">Buy Now</button>
                   </a>
               </div> </div>
@@ -87,7 +86,7 @@ function showMovies2(movies) {
         <div class="product-info">
             <h2>${name}</h2>
             <p>${short_description}</p>
-            <div class="price">${price}</div>
+            <div class="price">৳${price}</div>
         </div>
         <div class="btn">
         <a href='https://expressbuybd.com/?add-to-cart=${id}'><button class="buy-btn">Buy Now</button>
