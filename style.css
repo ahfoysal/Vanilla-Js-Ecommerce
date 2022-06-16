@@ -39,6 +39,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     position: relative;
+    justify-content: center;
 }
 
 .movie {
@@ -48,7 +49,7 @@ main {
     overflow: hidden;
     position: relative;
     margin: 1rem;
-    width: 300px;
+    width: 250px;
 }
 
 .movie img {

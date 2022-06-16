@@ -9,6 +9,7 @@ const key =
 const main = document.getElementById('main');
 const form = document.getElementById('form');
 const search = document.getElementById('search');
+const siteUrl = 'https://expressbuybd.com/';
 
 // initially get fav movies
 getMovies(APIURL2);
@@ -28,24 +29,25 @@ function showMovies(movies) {
 
     main.innerHTML = '';
     movies.forEach((movie) => {
-        const { name, price } = movie;
+        const { images, name, price, categories, permalink, id } = movie;
 
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
-        console.log(name, price);
+        // console.log(name, price);
 
         movieEl.innerHTML = `
-        <img
+        <a href="${permalink}"> <img
         src="${images[0].src}"
         alt="${name}"
-            />
+            /></a>
             <div class="movie-info">
                 <h3>${name}</h3>
                 <span class="">${price}</span>
               </div>
               <div class="overview">
-                  <h3>Overview:</h3>
-                  <h3>Categories:</h3>
+                  <h3>Categories:${categories[0].name} </h3>
+                  <a href='https://expressbuybd.com/?add-to-cart=${id}'>Buy NOW<a/>
+
                   
               </div>
         `;
