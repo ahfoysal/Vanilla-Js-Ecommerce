@@ -1,8 +1,8 @@
-let APIURL = 'https://expressbuybd.com/wp-json/wc/v3/products?';
-
-let SEARCHAPI = 'https://expressbuybd.com/wp-json/wc/v3/products?search=';
 const key =
     '&consumer_key=ck_29618b80e61c705dace0c49ceb724a3959df5b50&consumer_secret=cs_80cd666549222f2d3efb376bade63960ab3ce3d2';
+let SEARCHAPI = 'https://expressbuybd.com/wp-json/wc/v3/products?search=';
+let APIURL = 'https://expressbuybd.com/wp-json/wc/v3/products?';
+
 const main = document.getElementById('main');
 const form = document.getElementById('form');
 const search = document.getElementById('search');
