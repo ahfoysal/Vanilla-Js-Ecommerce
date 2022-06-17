@@ -135,6 +135,8 @@ function showMovies3(movies) {
 
     movieEl.innerHTML = ` 
     <button class="close" onclick="bal()">CLOSE</button>
+    
+ 
 
         <div class="product-image">
           <img src="${movies.images[0].src}" alt="OFF-white Red Edition" draggable="false" />
