@@ -37,8 +37,18 @@ body {
 
 .Show-bar {
     position: fixed !important;
-    top: 100px;
+    top: 60px;
     z-index: 40;
+    padding: 1rem;
+    width: 600px;
+    height: 500px;
+    box-shadow: -1px 15px 30px -12px rgb(32, 32, 32);
+    border-radius: 0.9rem;
+    background-color: var(--red-card);
+    color: var(--text);
+    cursor: pointer;
+    overflow: visible;
+    margin: 20px 20px;
 }
 
 .close {
@@ -272,7 +282,7 @@ h3 {
 .product-image {
     height: 230px;
     width: 100%;
-    transform: translate(0, -1.5rem);
+    transform: translate(0, -1rem);
     transition: transform 500ms ease-in-out;
     filter: drop-shadow(5px 10px 15px rgba(8, 9, 13, 0.4));
     object-fit: contain;
@@ -282,12 +292,16 @@ h3 {
     object-fit: contain;
 }
 
+.Show-bar img {
+    object-fit: contain;
+}
+
 .product-info {
     text-align: center;
 }
 
 .cards:hover .product-image {
-    transform: translate(-1.5rem, -7rem) rotate(-20deg);
+    transform: translate(-1.5rem, -2rem) rotate(-20deg);
 }
 
 .product-info h2 {
@@ -319,6 +333,7 @@ h3 {
     font-weight: 600 !important;
     font-size: 1rem !important;
     transition: 300ms ease !important;
+    border: none !important;
 }
 
 .buy-btn:hover {

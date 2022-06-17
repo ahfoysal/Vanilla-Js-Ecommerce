@@ -39,21 +39,23 @@ function showMovies(movies) {
 
     main.innerHTML = '';
     movies.forEach((movie) => {
-        const { images, name, price, permalink, id } = movie;
+        const { images, name, price, id } = movie;
 
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
         // console.log(name, price);
 
         movieEl.innerHTML = `<div class="row">
-        <a href="${permalink}"> <img
+        <a onclick="getMovies3(APIURL, '/${id}');">  
+
+        <img
         src="${images[0].src}"
         alt="${name}"
             /></a>
             <div class="movie-info">
                 <h3>${name}</h3>
-                <span class="">৳${price}</span>
-              </div>
+                <span class="">৳${price}</span></div>
+                </div>
               <div class="overview">
                   <a href='https://expressbuybd.com/?add-to-cart=${id}'><button class="buy-btn">Buy Now</button>
                   </a>
@@ -70,7 +72,7 @@ function showMovies2(movies) {
 
     mains.innerHTML = '';
     movies.forEach((movie) => {
-        const { images, name, price, permalink, id, short_description } = movie;
+        const { images, name, price, id, short_description } = movie;
 
         const movieEl = document.createElement('section');
         movieEl.classList.add('cards');
@@ -79,12 +81,13 @@ function showMovies2(movies) {
 
         movieEl.innerHTML = ` 
         <div class="product-image">
-        <a href="${permalink}">   <img src="${images[0].src}" alt="OFF-white Red Edition" draggable="false" /></a>
+        <a onclick="getMovies3(APIURL, '/${id}');
+        ">  <img src="${images[0].src}" alt="OFF-white Red Edition" draggable="false" />
         </div>
         <div class="product-info">
             <h2>${name}</h2>
             <p>${short_description}</p>
-            <div class="price">৳${price}</div>
+            <div class="price">৳${price}</div></a>
         </div>
         <div class="btn">
         <a href='https://expressbuybd.com/?add-to-cart=${id}'><button class="buy-btn">Buy Now</button>
@@ -111,3 +114,52 @@ form.addEventListener('submit', (e) => {
 });
 
 ////slick
+
+async function getMovies3(url, pID) {
+    const resp = await fetch(url + pID + key);
+    const respData = await resp.json();
+
+    console.log(respData);
+
+    showMovies3(respData);
+}
+
+function showMovies3(movies) {
+    test.innerHTML = '';
+    // const { images, name, price, permalink, id, short_description } = movie;
+
+    const movieEl = document.createElement('section');
+    movieEl.classList.add('Show-bar');
+
+    // console.log(name, price);
+
+    movieEl.innerHTML = ` 
+    <button class="close" onclick="bal()">CLOSE</button>
+
+        <div class="product-image">
+          <img src="${movies.images[0].src}" alt="OFF-white Red Edition" draggable="false" />
+        </div>
+
+        <div class="product-info">
+            <h2>${movies.name}</h2>
+            <p>${movies.short_description}</p>
+            <p>${movies.description}</p>
+
+            <div class="price">৳${movies.price}</div>
+        </div>
+        <div class="btn">
+        <a href='https://expressbuybd.com/?add-to-cart=${movies.id}'><button class="buy-btn">Buy Now</button>
+        </div>
+     
+    
+     `;
+
+    test.appendChild(movieEl);
+}
+
+///// close
+function bal() {
+    var x = document.getElementsByClassName('Show-bar');
+
+    x[0].style.display = 'none';
+}

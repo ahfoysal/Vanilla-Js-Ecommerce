@@ -67,7 +67,6 @@ function showMovies3(movies) {
     // const { images, name, price, permalink, id, short_description } = movie;
 
     const movieEl = document.createElement('section');
-    movieEl.classList.add('cards');
     movieEl.classList.add('Show-bar');
 
     // console.log(name, price);
@@ -124,7 +123,7 @@ function showMovies3(movies) {
 
 ///// close
 function bal() {
-    var x = document.getElementsByClassName('cards');
+    var x = document.getElementsByClassName('Show-bar');
 
     x[0].style.display = 'none';
 }
