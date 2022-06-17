@@ -1,21 +1,20 @@
 const key =
-    '&consumer_key=ck_29618b80e61c705dace0c49ceb724a3959df5b50&consumer_secret=cs_80cd666549222f2d3efb376bade63960ab3ce3d2';
+    '?consumer_key=ck_29618b80e61c705dace0c49ceb724a3959df5b50&consumer_secret=cs_80cd666549222f2d3efb376bade63960ab3ce3d2';
 let SEARCHAPI = 'https://expressbuybd.com/wp-json/wc/v3/products?search=';
-let APIURL = 'https://expressbuybd.com/wp-json/wc/v3/products?';
+let APIURL = 'https://expressbuybd.com/wp-json/wc/v3/products';
 
 const main = document.getElementById('main');
 const form = document.getElementById('form');
 const search = document.getElementById('search');
 const siteUrl = 'https://expressbuybd.com/';
-const per_page = 'per_page=16';
+const per_page = '&per_page=16';
 
 // const categorie = 'category=250';
 // initially get fav movies
 getMovies(APIURL);
 getMovies2(APIURL);
-
 async function getMovies(url) {
-    const resp = await fetch(url + per_page + key);
+    const resp = await fetch(url + key + per_page);
     const respData = await resp.json();
 
     console.log(respData);
@@ -24,9 +23,9 @@ async function getMovies(url) {
 }
 
 async function getMovies2(url) {
-    let categorie = 'category=251';
+    let categorie = '&category=251';
 
-    const resp = await fetch(url + categorie + key);
+    const resp = await fetch(url + key + categorie);
     const respData = await resp.json();
 
     console.log(respData);
@@ -75,6 +74,7 @@ function showMovies2(movies) {
 
         const movieEl = document.createElement('section');
         movieEl.classList.add('cards');
+
         // console.log(name, price);
 
         movieEl.innerHTML = ` 
