@@ -30,6 +30,7 @@ img {
 
 body {
     background-color: #22254b !important;
+    /* background-color: white; */
     font-family: 'Montserrat', sans-serif !important;
     padding: 0;
     box-sizing: border-box;
@@ -111,12 +112,13 @@ h3 {
 .movie {
     /* background-color: #373b69; */
     border-radius: 8px;
-    box-shadow: 2px 3px 4px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     position: relative;
     margin: 1rem;
     width: 243px;
     height: 360px;
+    background-color: #88c8bc;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -269,7 +271,7 @@ h3 {
     font-size: 40px;
     font-style: italic;
     font-weight: 600;
-    color: white;
+    color: #88c8bc;
     text-align: center;
     margin: 30px;
     font-family: 'Rokkitt', serif;
@@ -371,13 +373,133 @@ h3 {
         gap: 3rem;
     }
     .Show-bar {
-        padding: 2rem 0;
+        padding: 3rem 0;
         width: 100%;
-        height: 60%;
+        height: 80%;
         flex-direction: column;
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 3rem;
+    }
+}
+
+
+/* loader */
+
+h1 {
+    font-family: 'Open Sans', -apple-system, 'Segoe UI', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #212121;
+    box-sizing: border-box;
+}
+
+.dots {
+    display: inline-flex;
+}
+
+.dots--animate .dot.z {
+    -webkit-animation: scale 0.8s 0.2s forwards;
+    animation: scale 0.8s 0.2s forwards;
+}
+
+.dots--animate .dot.f,
+.dots--animate .dot.s {
+    -webkit-animation: right 0.5s forwards;
+    animation: right 0.5s forwards;
+}
+
+.dots--animate .dot.l {
+    -webkit-animation: rightDown 0.4s 0.1s forwards linear, drop 2s 0.4s forwards linear;
+    animation: rightDown 0.4s 0.1s forwards linear, drop 2s 0.4s forwards linear;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #212121;
+    border-radius: 10px;
+    position: relative;
+    margin-left: 6px;
+}
+
+.dot.z {
+    position: absolute;
+    transform: scale(0);
+}
+
+@-webkit-keyframes scale {
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes scale {
+    100% {
+        transform: scale(1);
+    }
+}
+
+.dot.f,
+.dot.s {
+    transform: translateX(0px);
+}
+
+@-webkit-keyframes right {
+    100% {
+        transform: translateX(16px);
+    }
+}
+
+@keyframes right {
+    100% {
+        transform: translateX(16px);
+    }
+}
+
+.dot.t {
+    background: transparent;
+}
+
+.dot .l {
+    margin-left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@-webkit-keyframes rightDown {
+    50% {
+        top: 4px;
+        left: 16px;
+    }
+    100% {
+        top: 12px;
+        left: 24px;
+    }
+}
+
+@keyframes rightDown {
+    50% {
+        top: 4px;
+        left: 16px;
+    }
+    100% {
+        top: 12px;
+        left: 24px;
+    }
+}
+
+@-webkit-keyframes drop {
+    100% {
+        transform: translate(70px, calc(35px + (100vh / 2)));
+    }
+}
+
+@keyframes drop {
+    100% {
+        transform: translate(70px, calc(35px + (100vh / 2)));
     }
 }
