@@ -1,5 +1,5 @@
 const key =
-    '?consumer_key=ck_29618b80e61c705dace0c49ceb724a3959df5b50&consumer_secret=cs_80cd666549222f2d3efb376bade63960ab3ce3d2';
+    'consumer_key=ck_29618b80e61c705dace0c49ceb724a3959df5b50&consumer_secret=cs_80cd666549222f2d3efb376bade63960ab3ce3d2';
 let SEARCHAPI = 'https://expressbuybd.com/wp-json/wc/v3/products?search=';
 let APIURL = 'https://expressbuybd.com/wp-json/wc/v3/products';
 
@@ -14,7 +14,7 @@ const per_page = '&per_page=16';
 getMovies(APIURL);
 getMovies2(APIURL);
 async function getMovies(url) {
-    const resp = await fetch(url + key + per_page);
+    const resp = await fetch(url + '?' + key + per_page);
     const respData = await resp.json();
 
     console.log(respData);
@@ -23,9 +23,9 @@ async function getMovies(url) {
 }
 
 async function getMovies2(url) {
-    let categorie = '&category=251';
+    let categorie = '&category=251?';
 
-    const resp = await fetch(url + key + categorie);
+    const resp = await fetch(url + '?' + key + categorie);
     const respData = await resp.json();
 
     console.log(respData);
@@ -46,7 +46,7 @@ function showMovies(movies) {
         // console.log(name, price);
 
         movieEl.innerHTML = `<div class="row">
-        <a onclick="getMovies3(APIURL, '/${id}');">  
+        <a onclick="getMovies3(APIURL, '/${id}?');">  
 
         <img
         src="${images[0].src}"
@@ -81,7 +81,7 @@ function showMovies2(movies) {
 
         movieEl.innerHTML = ` 
         <div class="product-image">
-        <a onclick="getMovies3(APIURL, '/${id}');
+        <a onclick="getMovies3(APIURL, '/${id}?');
         ">  <img src="${images[0].src}" alt="OFF-white Red Edition" draggable="false" />
         </div>
         <div class="product-info">
@@ -106,8 +106,8 @@ form.addEventListener('submit', (e) => {
     const searchTerm = search.value;
 
     if (searchTerm) {
-        getMovies(SEARCHAPI + searchTerm + key);
-        console.log(SEARCHAPI + searchTerm + key);
+        getMovies(SEARCHAPI + searchTerm + '&' + key);
+        console.log(SEARCHAPI + searchTerm + '&' + key);
 
         search.value = '';
     }
