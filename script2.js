@@ -1,9 +1,6 @@
-const APIURL2 = 'https://expressbuybd.com/wp-json/wc/v3/products?';
+let APIURL = 'https://expressbuybd.com/wp-json/wc/v3/products?';
 
-const APIURL =
-    'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1';
-// const IMGPATH = ] ;
-const SEARCHAPI = 'https://expressbuybd.com/wp-json/wc/v3/products?search=';
+let SEARCHAPI = 'https://expressbuybd.com/wp-json/wc/v3/products?search=';
 const key =
     '&consumer_key=ck_29618b80e61c705dace0c49ceb724a3959df5b50&consumer_secret=cs_80cd666549222f2d3efb376bade63960ab3ce3d2';
 const main = document.getElementById('main');
@@ -11,10 +8,11 @@ const form = document.getElementById('form');
 const search = document.getElementById('search');
 const siteUrl = 'https://expressbuybd.com/';
 const per_page = 'per_page=16';
+
 // const categorie = 'category=250';
 // initially get fav movies
-getMovies(APIURL2);
-getMovies2(APIURL2);
+getMovies(APIURL);
+getMovies2(APIURL);
 
 async function getMovies(url) {
     const resp = await fetch(url + per_page + key);
@@ -76,7 +74,7 @@ function showMovies2(movies) {
         const { images, name, price, permalink, id, short_description } = movie;
 
         const movieEl = document.createElement('section');
-        movieEl.classList.add('card');
+        movieEl.classList.add('cards');
         // console.log(name, price);
 
         movieEl.innerHTML = ` 
