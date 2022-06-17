@@ -116,6 +116,7 @@ form.addEventListener('submit', (e) => {
 ////slick
 
 async function getMovies3(url, pID) {
+    hide();
     const resp = await fetch(url + pID + key);
     const respData = await resp.json();
 
@@ -162,8 +163,16 @@ function showMovies3(movies) {
 ///// close
 function bal() {
     var x = document.getElementsByClassName('Show-bar');
+    var y = document.getElementsByClassName('hide-bar');
 
+    y[0].style.display = 'none';
     x[0].style.display = 'none';
+}
+
+function hide() {
+    var y = document.getElementsByClassName('hide-bar');
+    y[0].style.display = 'block';
+    animate(dots, 'dots--animate');
 }
 
 /////////loder
