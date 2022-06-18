@@ -7,12 +7,12 @@ const main = document.getElementById('main');
 const form = document.getElementById('form');
 const search = document.getElementById('search');
 const siteUrl = 'https://expressbuybd.com/';
-const per_page = '&per_page=16';
-
+let per_page = '&per_page=16';
 // const categorie = 'category=250';
 // initially get fav movies
 getMovies(APIURL);
 getMovies2(APIURL);
+
 async function getMovies(url) {
     const resp = await fetch(url + '?' + key + per_page);
     const respData = await resp.json();

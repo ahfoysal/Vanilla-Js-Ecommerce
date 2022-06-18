@@ -18,6 +18,16 @@ button {
     cursor: pointer !important;
 }
 
+.categorie ul {
+    margin-top: 0;
+    color: white;
+    flex-wrap: wrap;
+    gap: 30px;
+    display: flex;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
 a {
     text-decoration: none;
 }

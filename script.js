@@ -1,18 +1,61 @@
 const key =
-    '?consumer_key=ck_29618b80e61c705dace0c49ceb724a3959df5b50&consumer_secret=cs_80cd666549222f2d3efb376bade63960ab3ce3d2';
+    'consumer_key=ck_29618b80e61c705dace0c49ceb724a3959df5b50&consumer_secret=cs_80cd666549222f2d3efb376bade63960ab3ce3d2';
 let SEARCHAPI = 'https://expressbuybd.com/wp-json/wc/v3/products?search=';
 let APIURL = 'https://expressbuybd.com/wp-json/wc/v3/products';
+let APIURL2 = 'https://expressbuybd.com/wp-json/wc/v3';
 
 const main = document.getElementById('main');
 const form = document.getElementById('form');
 const search = document.getElementById('search');
 const siteUrl = 'https://expressbuybd.com/';
-const per_page = '&per_page=16';
+const per_page = '&per_page=50';
+const categorie = document.getElementById('categorie');
+
+getMovies9(APIURL);
+getMovies(APIURL, '');
+fetchingData(APIURL2, '');
 
 // const pID = '/2600';
-getMovies(APIURL);
-async function getMovies(url) {
-    const resp = await fetch(url + key + per_page);
+async function fetchingData(url) {
+    const resp = await fetch(url + '/orders' + '?' + key);
+    const respData = await resp.json();
+
+    console.log(respData);
+}
+
+async function getMovies9(url) {
+    const resp = await fetch(url + '/categories' + '?' + key + '&per_page=10');
+    const respData = await resp.json();
+
+    console.log(respData);
+    showMovies9(respData);
+}
+
+function showMovies9(movies) {
+    // clear main
+    // const IMGPATH = images[0].src;
+
+    categorie.innerHTML = '';
+    movies.forEach((movie) => {
+        const { name, id } = movie;
+
+        const movieEl = document.createElement('li');
+        movieEl.classList.add('test');
+
+        // console.log(name, price);
+
+        movieEl.innerHTML = `
+        <a onclick="getMovies(APIURL, '&category=${id}'); "> <p>${name}</p></a>
+               
+        `;
+
+        categorie.appendChild(movieEl);
+    });
+}
+
+async function getMovies(url, catID) {
+    const resp = await fetch(url + '?' + key + catID + per_page);
+
     const respData = await resp.json();
 
     console.log(respData);
