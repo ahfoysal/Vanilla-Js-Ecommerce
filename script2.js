@@ -151,7 +151,7 @@ function showMovies3(movies) {
             <div class="price">৳${movies.price}</div>
         </div>
         <div class="btn">
-        <button class="buy-btn" onclick="checkout()">Buy Now</button>
+        <button class="buy-btn" onclick="checkout(${movies.id})">Buy Now</button>
         </div>
      
     
@@ -161,9 +161,12 @@ function showMovies3(movies) {
 }
 
 ///// close
-function checkout(){
+function checkout(id){
     var x = document.getElementsByClassName('Show-bar');
     x[0].style.display = 'none';
+     createOrder('name', 'address' , '123' , id)
+     console.log(id);
+
 
 }
 function bal() {
@@ -215,7 +218,7 @@ function animate(element, className) {
 
 animate(dots, 'dots--animate');
 ////////////
-function createOrder(name, address , phone){
+function createOrder(name, address , phone , id){
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     
@@ -229,7 +232,7 @@ function createOrder(name, address , phone){
       },
       "line_items": [
         {
-          "product_id": 2585,
+          "product_id": id,
           "quantity": 2
         }
       ]
