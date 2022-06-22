@@ -151,7 +151,7 @@ function showMovies3(movies) {
             <div class="price">৳${movies.price}</div>
         </div>
         <div class="btn">
-        <a href='https://expressbuybd.com/?add-to-cart=${movies.id}'><button class="buy-btn">Buy Now</button>
+        <button class="buy-btn" onclick="checkout()">Buy Now</button>
         </div>
      
     
@@ -161,6 +161,11 @@ function showMovies3(movies) {
 }
 
 ///// close
+function checkout(){
+    var x = document.getElementsByClassName('Show-bar');
+    x[0].style.display = 'none';
+
+}
 function bal() {
     var x = document.getElementsByClassName('Show-bar');
     var y = document.getElementsByClassName('hide-bar');
@@ -209,3 +214,38 @@ function animate(element, className) {
 }
 
 animate(dots, 'dots--animate');
+////////////
+function createOrder(name, address , phone){
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    
+    var raw = JSON.stringify({
+      "payment_method": "cod",
+      "payment_method_title": "Cash On Delivery",
+      "billing": {
+        "first_name": name,
+        "address_1": address,
+        "phone": phone
+      },
+      "line_items": [
+        {
+          "product_id": 2585,
+          "quantity": 2
+        }
+      ]
+    });
+    
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+    
+    fetch("https://expressbuybd.com/wp-json/wc/v3/orders?consumer_key=ck_29618b80e61c705dace0c49ceb724a3959df5b50&consumer_secret=cs_80cd666549222f2d3efb376bade63960ab3ce3d2", requestOptions)
+      .then(response => response.json())
+      .then(result => console.log(result, result.id ))
+      .catch(error => console.log('error', error));
+    
+    
+}
