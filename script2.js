@@ -175,12 +175,8 @@ function createOrder(name, address , phone , id){
         "address_1": address,
         "phone": phone
       },
-      "line_items": [
-        {
-          "product_id": id,
-          "quantity": 1
-        }
-      ]
+      "line_items": [{'product_id': 529,'quantity': 1},{'product_id': 528,'quantity': 1}]
+
     });
     
     var requestOptions = {
